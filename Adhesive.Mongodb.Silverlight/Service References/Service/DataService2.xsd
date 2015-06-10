@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="Adhesive.Mongodb" elementFormDefault="qualified" targetNamespace="Adhesive.Mongodb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" />
+  <xs:complexType name="ArrayOfCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubCategoryList" nillable="true" type="tns:ArrayOfSubCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfSubCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubCategory" nillable="true" type="tns:SubCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubCategory" nillable="true" type="tns:ArrayOfSubCategory" />
+  <xs:complexType name="SubCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DatabasePrefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TableNames" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="TypeFullName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubCategory" nillable="true" type="tns:SubCategory" />
+  <xs:complexType name="MongodbServerUrl">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Master" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Slave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SyncDelay" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MongodbServerUrl" nillable="true" type="tns:MongodbServerUrl" />
+  <xs:complexType name="ServerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Databases" nillable="true" type="tns:ArrayOfDatabaseInfo" />
+      <xs:element minOccurs="0" name="Descriptions" nillable="true" type="tns:ArrayOfMongodbDatabaseDescription" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="tns:MongodbServerUrl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServerInfo" nillable="true" type="tns:ServerInfo" />
+  <xs:complexType name="ArrayOfDatabaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DatabaseInfo" nillable="true" type="tns:DatabaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDatabaseInfo" nillable="true" type="tns:ArrayOfDatabaseInfo" />
+  <xs:complexType name="DatabaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Collections" nillable="true" type="tns:ArrayOfCollectionInfo" />
+      <xs:element minOccurs="0" name="DatabaseDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatabaseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatabasePrefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatabaseStatus" nillable="true" type="tns:DatabaseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatabaseInfo" nillable="true" type="tns:DatabaseInfo" />
+  <xs:complexType name="ArrayOfCollectionInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CollectionInfo" nillable="true" type="tns:CollectionInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCollectionInfo" nillable="true" type="tns:ArrayOfCollectionInfo" />
+  <xs:complexType name="CollectionInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CascadeFilterColumns" nillable="true" type="tns:ArrayOfCascadeFilterColumnInfo" />
+      <xs:element minOccurs="0" name="CollectionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CollectionStatus" nillable="true" type="tns:CollectionStatus" />
+      <xs:element minOccurs="0" name="ListFilterColumns" nillable="true" type="tns:ArrayOfListFilterColumnInfo" />
+      <xs:element minOccurs="0" name="TextboxFilterColumns" nillable="true" type="tns:ArrayOfTextboxFilterColumnInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CollectionInfo" nillable="true" type="tns:CollectionInfo" />
+  <xs:complexType name="ArrayOfCascadeFilterColumnInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CascadeFilterColumnInfo" nillable="true" type="tns:CascadeFilterColumnInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCascadeFilterColumnInfo" nillable="true" type="tns:ArrayOfCascadeFilterColumnInfo" />
+  <xs:complexType name="CascadeFilterColumnInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DistinctValues" nillable="true" type="q2:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CascadeFilterColumnInfo" nillable="true" type="tns:CascadeFilterColumnInfo" />
+  <xs:complexType name="CollectionStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AverageObjectSize" type="xs:double" />
+      <xs:element minOccurs="0" name="DataSize" type="xs:long" />
+      <xs:element minOccurs="0" name="ExtentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Flags" type="xs:int" />
+      <xs:element minOccurs="0" name="IndexCount" type="xs:int" />
+      <xs:element minOccurs="0" name="IndexStatusList" nillable="true" type="tns:ArrayOfIndexStatus" />
+      <xs:element minOccurs="0" name="LastEnsureIndexTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastExtentSize" type="xs:long" />
+      <xs:element minOccurs="0" name="Namespace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectCount" type="xs:long" />
+      <xs:element minOccurs="0" name="PaddingFactor" type="xs:double" />
+      <xs:element minOccurs="0" name="StorageSize" type="xs:long" />
+      <xs:element minOccurs="0" name="TotalIndexSize" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CollectionStatus" nillable="true" type="tns:CollectionStatus" />
+  <xs:complexType name="ArrayOfIndexStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndexStatus" nillable="true" type="tns:IndexStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndexStatus" nillable="true" type="tns:ArrayOfIndexStatus" />
+  <xs:complexType name="IndexStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Namespace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Size" type="xs:long" />
+      <xs:element minOccurs="0" name="Unique" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndexStatus" nillable="true" type="tns:IndexStatus" />
+  <xs:complexType name="ArrayOfListFilterColumnInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListFilterColumnInfo" nillable="true" type="tns:ListFilterColumnInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListFilterColumnInfo" nillable="true" type="tns:ArrayOfListFilterColumnInfo" />
+  <xs:complexType name="ListFilterColumnInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistinctValues" nillable="true" type="tns:ArrayOfItemPair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListFilterColumnInfo" nillable="true" type="tns:ListFilterColumnInfo" />
+  <xs:complexType name="ArrayOfItemPair">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemPair" nillable="true" type="tns:ItemPair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemPair" nillable="true" type="tns:ArrayOfItemPair" />
+  <xs:complexType name="ItemPair">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemPair" nillable="true" type="tns:ItemPair" />
+  <xs:complexType name="ArrayOfTextboxFilterColumnInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TextboxFilterColumnInfo" nillable="true" type="tns:TextboxFilterColumnInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTextboxFilterColumnInfo" nillable="true" type="tns:ArrayOfTextboxFilterColumnInfo" />
+  <xs:complexType name="TextboxFilterColumnInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TextboxFilterColumnInfo" nillable="true" type="tns:TextboxFilterColumnInfo" />
+  <xs:complexType name="DatabaseStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AverageObjectSize" type="xs:double" />
+      <xs:element minOccurs="0" name="CollectionCount" type="xs:int" />
+      <xs:element minOccurs="0" name="DataSize" type="xs:long" />
+      <xs:element minOccurs="0" name="ExtentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:long" />
+      <xs:element minOccurs="0" name="IndexCount" type="xs:int" />
+      <xs:element minOccurs="0" name="IndexSize" type="xs:long" />
+      <xs:element minOccurs="0" name="ObjectCount" type="xs:long" />
+      <xs:element minOccurs="0" name="StorageSize" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatabaseStatus" nillable="true" type="tns:DatabaseStatus" />
+  <xs:complexType name="ArrayOfMongodbDatabaseDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MongodbDatabaseDescription" nillable="true" type="tns:MongodbDatabaseDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMongodbDatabaseDescription" nillable="true" type="tns:ArrayOfMongodbDatabaseDescription" />
+  <xs:complexType name="MongodbDatabaseDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatabasePrefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpireDays" type="xs:int" />
+      <xs:element minOccurs="0" name="MongodbColumnDescriptionList" nillable="true" type="tns:ArrayOfMongodbColumnDescription" />
+      <xs:element minOccurs="0" name="MongodbEnumColumnDescriptionList" nillable="true" type="tns:ArrayOfMongodbEnumColumnDescription" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SentToServer" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TypeFullName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MongodbDatabaseDescription" nillable="true" type="tns:MongodbDatabaseDescription" />
+  <xs:complexType name="ArrayOfMongodbColumnDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MongodbColumnDescription" nillable="true" type="tns:MongodbColumnDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMongodbColumnDescription" nillable="true" type="tns:ArrayOfMongodbColumnDescription" />
+  <xs:complexType name="MongodbColumnDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsArrayColumn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsContextIdentityColumn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEntityColumn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrimaryKey" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTableColumn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTimeColumn" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" minOccurs="0" name="MongodbCascadeFilterOption" type="q3:MongodbCascadeFilterOption" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" minOccurs="0" name="MongodbFilterOption" type="q4:MongodbFilterOption" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" minOccurs="0" name="MongodbIndexOption" type="q5:MongodbIndexOption" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" minOccurs="0" name="MongodbSortOption" type="q6:MongodbSortOption" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowInTableView" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MongodbColumnDescription" nillable="true" type="tns:MongodbColumnDescription" />
+  <xs:complexType name="ArrayOfMongodbEnumColumnDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MongodbEnumColumnDescription" nillable="true" type="tns:MongodbEnumColumnDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMongodbEnumColumnDescription" nillable="true" type="tns:ArrayOfMongodbEnumColumnDescription" />
+  <xs:complexType name="MongodbEnumColumnDescription">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="EnumItems" nillable="true" type="q7:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MongodbEnumColumnDescription" nillable="true" type="tns:MongodbEnumColumnDescription" />
+  <xs:complexType name="DetailData">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" minOccurs="0" name="Data" nillable="true" type="q8:ArrayOfDetail" />
+      <xs:element minOccurs="0" name="DatabaseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatabasePrefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PkColumnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetailData" nillable="true" type="tns:DetailData" />
+  <xs:complexType name="MongodbAdminConfigurationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNumber" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MongodbAdminDatabaseConfigurationItems" nillable="true" type="q9:ArrayOfKeyValueOfstringMongodbAdminDatabaseConfigurationItemZiI5AnNb" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RealName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MongodbAdminConfigurationItem" nillable="true" type="tns:MongodbAdminConfigurationItem" />
+  <xs:complexType name="MongodbAdminDatabaseConfigurationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DatabasePrefix" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MongodbAdminTableConfigurationItems" nillable="true" type="q10:ArrayOfKeyValueOfstringMongodbAdminTableConfigurationItemZiI5AnNb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MongodbAdminDatabaseConfigurationItem" nillable="true" type="tns:MongodbAdminDatabaseConfigurationItem" />
+  <xs:complexType name="MongodbAdminTableConfigurationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MongodbAdminTableConfigurationItem" nillable="true" type="tns:MongodbAdminTableConfigurationItem" />
+  <xs:complexType name="FilterData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CascadeFilters" nillable="true" type="tns:ArrayOfCascadeFilter" />
+      <xs:element minOccurs="0" name="ListFilters" nillable="true" type="tns:ArrayOfListFilter" />
+      <xs:element minOccurs="0" name="TextboxFilters" nillable="true" type="tns:ArrayOfTextboxFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FilterData" nillable="true" type="tns:FilterData" />
+  <xs:complexType name="ArrayOfCascadeFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CascadeFilter" nillable="true" type="tns:CascadeFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCascadeFilter" nillable="true" type="tns:ArrayOfCascadeFilter" />
+  <xs:complexType name="CascadeFilter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Filter">
+        <xs:sequence>
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" minOccurs="0" name="CascadeFilterType" type="q11:CascadeFilterType" />
+          <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Items" nillable="true" type="q12:ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CascadeFilter" nillable="true" type="tns:CascadeFilter" />
+  <xs:complexType name="Filter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Filter" nillable="true" type="tns:Filter" />
+  <xs:complexType name="ArrayOfListFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListFilter" nillable="true" type="tns:ListFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListFilter" nillable="true" type="tns:ArrayOfListFilter" />
+  <xs:complexType name="ListFilter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Filter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfItemPair" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" minOccurs="0" name="ListFilterType" type="q13:ListFilterType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListFilter" nillable="true" type="tns:ListFilter" />
+  <xs:complexType name="ArrayOfTextboxFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TextboxFilter" nillable="true" type="tns:TextboxFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTextboxFilter" nillable="true" type="tns:ArrayOfTextboxFilter" />
+  <xs:complexType name="TextboxFilter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Filter">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextboxFilter" nillable="true" type="tns:TextboxFilter" />
+  <xs:complexType name="ArrayOfTableData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TableData" nillable="true" type="tns:TableData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTableData" nillable="true" type="tns:ArrayOfTableData" />
+  <xs:complexType name="TableData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PkColumnDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PkColumnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tables" nillable="true" type="tns:ArrayOfTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TableData" nillable="true" type="tns:TableData" />
+  <xs:complexType name="ArrayOfTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Table" nillable="true" type="tns:Table" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTable" nillable="true" type="tns:ArrayOfTable" />
+  <xs:complexType name="Table">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Data" nillable="true" type="q14:ArrayOfArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="DatabaseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatabasePrefix" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Table" nillable="true" type="tns:Table" />
+  <xs:complexType name="ArrayOfStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Statistics" nillable="true" type="tns:Statistics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatistics" nillable="true" type="tns:ArrayOfStatistics" />
+  <xs:complexType name="Statistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StatisticsItems" nillable="true" type="tns:ArrayOfStatisticsItem" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Statistics" nillable="true" type="tns:Statistics" />
+  <xs:complexType name="ArrayOfStatisticsItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatisticsItem" nillable="true" type="tns:StatisticsItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatisticsItem" nillable="true" type="tns:ArrayOfStatisticsItem" />
+  <xs:complexType name="StatisticsItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BeginTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatisticsItem" nillable="true" type="tns:StatisticsItem" />
+  <xs:complexType name="ArrayOfGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Group" nillable="true" type="tns:Group" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroup" nillable="true" type="tns:ArrayOfGroup" />
+  <xs:complexType name="Group">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupItems" nillable="true" type="tns:ArrayOfGroupItem" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Group" nillable="true" type="tns:Group" />
+  <xs:complexType name="ArrayOfGroupItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupItem" nillable="true" type="tns:GroupItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupItem" nillable="true" type="tns:ArrayOfGroupItem" />
+  <xs:complexType name="GroupItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Values" nillable="true" type="q15:ArrayOfKeyValueOfGroupItemValuePairintbKIrrSIv" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupItem" nillable="true" type="tns:GroupItem" />
+  <xs:complexType name="GroupItemValuePair">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupItemValuePair" nillable="true" type="tns:GroupItemValuePair" />
+  <xs:complexType name="ArrayOfMongodbAdminConfigurationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MongodbAdminConfigurationItem" nillable="true" type="tns:MongodbAdminConfigurationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMongodbAdminConfigurationItem" nillable="true" type="tns:ArrayOfMongodbAdminConfigurationItem" />
+</xs:schema>

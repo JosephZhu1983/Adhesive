@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CD831A1-D475-4C61-9ABA-1035E8B6ED7D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adhesive.AppInfoCenter.Imp</RootNamespace>
+    <AssemblyName>Adhesive.AppInfoCenter.Imp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\output\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\AppInfoCenterHttpModule.cs">
+      <Link>AppInfoCenterHttpModule.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\BaseService.cs">
+      <Link>BaseService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\AppInfoCenterConfiguration.cs">
+      <Link>AppInfoCenterConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\AppInfoCenterConfigurationDefaultConfig.cs">
+      <Link>AppInfoCenterConfigurationDefaultConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\AppInfoCenterConfigurationEntity.cs">
+      <Link>AppInfoCenterConfigurationEntity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\CommonConfig.cs">
+      <Link>CommonConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\ExceptionServiceConfig.cs">
+      <Link>ExceptionServiceConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\IncludeInfoStrategy.cs">
+      <Link>IncludeInfoStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\IncludeInfoStrategyConfigurationItem.cs">
+      <Link>IncludeInfoStrategyConfigurationItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\LoggingServiceConfig.cs">
+      <Link>LoggingServiceConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\PagePerformanceServiceConfig.cs">
+      <Link>PagePerformanceServiceConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\PerformanceMeasureConfig.cs">
+      <Link>PerformanceMeasureConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\PerformanceServiceConfig.cs">
+      <Link>PerformanceServiceConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\StateServiceConfig.cs">
+      <Link>StateServiceConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\StateServiceConfigurationItem.cs">
+      <Link>StateServiceConfigurationItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\Configuration\WebsitePageExecutionStateConfig.cs">
+      <Link>WebsitePageExecutionStateConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\AppDomainUnhandledExceptionInfo.cs">
+      <Link>AppDomainUnhandledExceptionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\AppException.cs">
+      <Link>AppException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\ExceptionInfo.cs">
+      <Link>ExceptionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\ExceptionService.cs">
+      <Link>ExceptionService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\ExceptionStrategy.cs">
+      <Link>ExceptionStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\HandledExceptionInfo.cs">
+      <Link>HandledExceptionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\MvcUnhandledExceptionInfo.cs">
+      <Link>MvcUnhandledExceptionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\WcfUnhandledClientExceptionInfo.cs">
+      <Link>WcfUnhandledClientExceptionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\WcfUnhandledServerExceptionInfo.cs">
+      <Link>WcfUnhandledServerExceptionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\ExceptionService\WebSiteUnhandledExceptionInfo.cs">
+      <Link>WebSiteUnhandledExceptionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\AbstractInfo.cs">
+      <Link>AbstractInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\AbstractInfoProvider.cs">
+      <Link>AbstractInfoProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\EnvironmentInfo.cs">
+      <Link>EnvironmentInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\EnvironmentInfoProvider.cs">
+      <Link>EnvironmentInfoProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\HttpContextInfo.cs">
+      <Link>HttpContextInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\HttpContextInfoProvider.cs">
+      <Link>HttpContextInfoProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\IInfoProvider.cs">
+      <Link>IInfoProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\IWcfClientInfo.cs">
+      <Link>IWcfClientInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\IWcfServerInfo.cs">
+      <Link>IWcfServerInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\LocationInfo.cs">
+      <Link>LocationInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\LocationInfoProvider.cs">
+      <Link>LocationInfoProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\MvcActionStage.cs">
+      <Link>MvcActionStage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\MvcContextInfo.cs">
+      <Link>MvcContextInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\RequestInfo.cs">
+      <Link>RequestInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InfoProvider\ResponseInfo.cs">
+      <Link>ResponseInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\InitServiceTask.cs">
+      <Link>InitServiceTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\LoggingService\LoggingService.cs">
+      <Link>LoggingService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\LoggingService\LogInfo.cs">
+      <Link>LogInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\LoggingService\LogStrategy.cs">
+      <Link>LogStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\PerformanceService\CodePerformanceService.cs">
+      <Link>CodePerformanceService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\PerformanceService\ExecutionTime.cs">
+      <Link>ExecutionTime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\PerformanceService\PagePerformanceService.cs">
+      <Link>PagePerformanceService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\PerformanceService\PerformanceInfo.cs">
+      <Link>PerformanceInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\PerformanceService\PerformancePoint.cs">
+      <Link>PerformancePoint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\PerformanceService\PerformancePointItem.cs">
+      <Link>PerformancePointItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\PerformanceService\WebsitePageExecutionInfo.cs">
+      <Link>WebsitePageExecutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\PerformanceService\WebsitePageExecutionStateService.cs">
+      <Link>WebsitePageExecutionStateService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\RegisterServiceTask.cs">
+      <Link>RegisterServiceTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\StateService\ApplicationStateInfo.cs">
+      <Link>ApplicationStateInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\StateService\ApplicationStateService.cs">
+      <Link>ApplicationStateService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\StateService\StateService.cs">
+      <Link>StateService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\StateService\WebsiteRequestStateInfo.cs">
+      <Link>WebsiteRequestStateInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\StateService\WebsiteRequestStateItem.cs">
+      <Link>WebsiteRequestStateItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.AppInfoCenter.Imp\StateService\WebsiteRequestStateService.cs">
+      <Link>WebsiteRequestStateService.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Adhesive.AppInfoCenter\Adhesive.AppInfoCenter.csproj">
+      <Project>{82D7D3ED-F4F5-4228-87EE-AC540CC74FC9}</Project>
+      <Name>Adhesive.AppInfoCenter %28Core\Adhesive.AppInfoCenter%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

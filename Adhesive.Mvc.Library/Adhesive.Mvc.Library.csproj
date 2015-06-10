@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05C8C67F-D01C-445B-9801-09CCBA7BD614}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adhesive.Mvc.Library</RootNamespace>
+    <AssemblyName>Adhesive.Mvc.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Output\Adhesive.Mvc.Library.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FluentHtml\Behaviors\AutoLabelBehavior.cs" />
+    <Compile Include="FluentHtml\Behaviors\AutoLabelSettings.cs" />
+    <Compile Include="FluentHtml\Behaviors\BehaviorHelperExtensions.cs" />
+    <Compile Include="FluentHtml\Behaviors\BehaviorMarkerExtensions.cs" />
+    <Compile Include="FluentHtml\Behaviors\CacheingBehaviorApplier.cs" />
+    <Compile Include="FluentHtml\Behaviors\GenericTypeSpec.cs" />
+    <Compile Include="FluentHtml\Behaviors\IBehavior.cs" />
+    <Compile Include="FluentHtml\Behaviors\IBehaviorMarker.cs" />
+    <Compile Include="FluentHtml\Behaviors\IBehaviorsContainer.cs" />
+    <Compile Include="FluentHtml\Behaviors\IMemberBehavior.cs" />
+    <Compile Include="FluentHtml\Behaviors\IModelStateHandler.cs" />
+    <Compile Include="FluentHtml\Behaviors\ISupportsMaxLength.cs" />
+    <Compile Include="FluentHtml\Behaviors\ISupportsModelState.cs" />
+    <Compile Include="FluentHtml\Behaviors\MemberBehaviorHelper.cs" />
+    <Compile Include="FluentHtml\Behaviors\RequiredCssClassBehavior.cs" />
+    <Compile Include="FluentHtml\Behaviors\ThreadSafeBehavior.cs" />
+    <Compile Include="FluentHtml\Behaviors\ThreadSafeDictionary.cs" />
+    <Compile Include="FluentHtml\Behaviors\ThreadSafeMemberBehavior.cs" />
+    <Compile Include="FluentHtml\Behaviors\TypeCssClassBehavior.cs" />
+    <Compile Include="FluentHtml\Behaviors\ValidationBehavior.cs" />
+    <Compile Include="FluentHtml\Elements\Button.cs" />
+    <Compile Include="FluentHtml\Elements\ButtonBase.cs" />
+    <Compile Include="FluentHtml\Elements\Checkbox.cs" />
+    <Compile Include="FluentHtml\Elements\CheckBoxBase.cs" />
+    <Compile Include="FluentHtml\Elements\CheckBoxList.cs" />
+    <Compile Include="FluentHtml\Elements\CheckBoxListBase.cs" />
+    <Compile Include="FluentHtml\Elements\DisableableElement.cs" />
+    <Compile Include="FluentHtml\Elements\Element.cs" />
+    <Compile Include="FluentHtml\Elements\FileUpload.cs" />
+    <Compile Include="FluentHtml\Elements\FormElement.cs" />
+    <Compile Include="FluentHtml\Elements\FormLiteral.cs" />
+    <Compile Include="FluentHtml\Elements\FormLiteralBase.cs" />
+    <Compile Include="FluentHtml\Elements\Hidden.cs" />
+    <Compile Include="FluentHtml\Elements\IElement.cs" />
+    <Compile Include="FluentHtml\Elements\IMemberElement.cs" />
+    <Compile Include="FluentHtml\Elements\Index.cs" />
+    <Compile Include="FluentHtml\Elements\Input.cs" />
+    <Compile Include="FluentHtml\Elements\Label.cs" />
+    <Compile Include="FluentHtml\Elements\LabelBase.cs" />
+    <Compile Include="FluentHtml\Elements\Literal.cs" />
+    <Compile Include="FluentHtml\Elements\LiteralBase.cs" />
+    <Compile Include="FluentHtml\Elements\MultiSelect.cs" />
+    <Compile Include="FluentHtml\Elements\Option.cs" />
+    <Compile Include="FluentHtml\Elements\OptionsElementBase.cs" />
+    <Compile Include="FluentHtml\Elements\Password.cs" />
+    <Compile Include="FluentHtml\Elements\RadioButton.cs" />
+    <Compile Include="FluentHtml\Elements\RadioButtonBase.cs" />
+    <Compile Include="FluentHtml\Elements\RadioSet.cs" />
+    <Compile Include="FluentHtml\Elements\RadioSetBase.cs" />
+    <Compile Include="FluentHtml\Elements\ResetButton.cs" />
+    <Compile Include="FluentHtml\Elements\ResetButtonBase.cs" />
+    <Compile Include="FluentHtml\Elements\Select.cs" />
+    <Compile Include="FluentHtml\Elements\SelectBase.cs" />
+    <Compile Include="FluentHtml\Elements\SubmitButton.cs" />
+    <Compile Include="FluentHtml\Elements\SubmitButtonBase.cs" />
+    <Compile Include="FluentHtml\Elements\TextArea.cs" />
+    <Compile Include="FluentHtml\Elements\TextAreaBase.cs" />
+    <Compile Include="FluentHtml\Elements\TextBox.cs" />
+    <Compile Include="FluentHtml\Elements\TextInput.cs" />
+    <Compile Include="FluentHtml\Elements\ValidationMessage.cs" />
+    <Compile Include="FluentHtml\Expressions\ExpressionExtensions.cs" />
+    <Compile Include="FluentHtml\Expressions\ExpressionNameVisitor.cs" />
+    <Compile Include="FluentHtml\Expressions\ExpressionNameVisitorResult.cs" />
+    <Compile Include="FluentHtml\Html\HtmlAttribute.cs" />
+    <Compile Include="FluentHtml\Html\HtmlEventAttribute.cs" />
+    <Compile Include="FluentHtml\Html\HtmlInputType.cs" />
+    <Compile Include="FluentHtml\Html\HtmlTag.cs" />
+    <Compile Include="FluentHtml\IViewModelContainer.cs" />
+    <Compile Include="FluentHtml\ModelStateDictionaryExtensions.cs" />
+    <Compile Include="FluentHtml\ModelViewMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FluentHtml\ModelViewPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FluentHtml\ModelViewUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FluentHtml\ModelWebViewPage.cs" />
+    <Compile Include="FluentHtml\PartialNameConventionService.cs" />
+    <Compile Include="FluentHtml\PartialRenderer.cs" />
+    <Compile Include="FluentHtml\StringExtensions.cs" />
+    <Compile Include="FluentHtml\ViewDataContainerExtensions.cs" />
+    <Compile Include="FluentHtml\ViewModelContainerExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ControlToolkit\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

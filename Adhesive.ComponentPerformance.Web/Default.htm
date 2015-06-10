@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <style type="text/css">
+        body
+        {
+            font-size: 9pt;
+            font-family: 微软雅黑;
+        }
+    </style>
+    <title>分布式组件性能</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var urlbase = "http://192.168.206.138:8888/";
+
+            for (var i = 0; i < 100; i++) {
+                $("#pageindex").append('<option value="' + i + '">' + i + '</option>');
+            }
+
+             $("#refresh").click(function () {
+                $("#dbname").change();
+            });
+            $("#aggname").change(function () {
+                $("#dbname").change();
+            });
+            $("#pageindex").change(function () {
+                $("#dbname").change();
+            });
+             $("#groupname").change(function () {
+   
+                $("#dbname").change();
+          
+            });
+
+            $("#catname").change(function () {
+                var val = $(this).children('option:selected').val();
+                $.getJSON(urlbase + 'GetDbNames?cat=' + val + '&callback=?', function (data) {
+                    $("#dbname").empty();
+                    $("#dbname").append('<option selected="selected" value="">选择监控小类...</option>');
+                    $.each(data, function (index, item) {
+                        $("#dbname").append("<option value=" + item + ">" + item + "</option>");
+                    });
+                });
+            });
+
+            $("#dbname").change(function (b) {
+                var val = $("#dbname").children('option:selected').val();
+                if (val != "") {
+                    var pageindex = $("#pageindex").val();
+                    var aggname = $("#aggname").val();
+                    var groupname = $("#groupname").val() == null ? "" : $("#groupname").val();
+                    var getdataurl = urlbase + 'GetData?dbName=' + val + '&aggName=' + aggname + '&groupName=' + encodeURI(groupname, "utf-8") + '&pagesize=720&pageindex=' + pageindex + '&callback=?';
+                    var getgroupnameurl = urlbase + 'GetGroupNames?dbName=' + val + '&callback=?';
+                    var gettextdata = urlbase + 'GetTextData?dbName=' + val + '&callback=?';
+                    if (groupname == "")
+                    {
+                         $.getJSON(getgroupnameurl, function (data) {
+                            $("#groupname").empty();
+                            $("#groupname").append('<option value="">所有监控项目</option>');
+                            $.each(data, function (index, item) {
+                            $("#groupname").append("<option value=" + item + ">" + item + "</option>");
+                            });
+                        });
+                    }
+
+                     $.getJSON(gettextdata, function (data) {
+                     $("#container").empty();
+                         $.each(data, function (index, item) {
+                            var subContainer = '<div><strong>' + item.Key + "</strong> :" + item.Value + '</div>'
+                            $("#container").append(subContainer);
+                            });
+                            $("#container").append('<br/>');
+
+                            $('#page_effect').fadeIn(100);
+
+                        $.getJSON(getdataurl, function (data) {
+                        $('#page_effect').fadeOut(100);
+                        $.each(data, function (index, item) {
+                            var subContainer = '<div id="' + item.Key + '" style="height: 300px; min-width: 500px; max-width:98%"></div>'
+                            $("#container").append(subContainer);
+                            var chart = new Highcharts.Chart({
+                                chart: {
+                                    renderTo: item.Key,
+       
+                                },
+                                title: {
+                                    text: item.Key,
+                                    style : 
+                                    {
+	                                    color: '#3E576F',
+	                                fontSize: '10pt'
+                                    }
+                                },
+                                xAxis: {
+                                    type: 'datetime',
+                                    title: {
+                                        text: '时间'
+                                    },
+
+                                    dateTimeLabelFormats :
+                                    {
+                                        minute: '%y/%m/%d %H:%M',
+                                        hour: '%y/%m/%d %H:%M',
+                                        day: '%y/%m/%d %H:%M',
+                                    }
+                                },
+                                yAxis: {
+                                    title: {
+                                        text: item.Key
+                                    },
+                                    startOnTick: false,
+                                    showFirstLabel: true
+                                },
+                               tooltip: { 
+            formatter: function() {  
+                  return '<b>'+'日期 : ' +'</b>'+ Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/><b>'+   this.series.name + '</b> : ' + this.y;  
+            }  
+        },  
+                                legend: {
+                                    enabled: false
+                                },
+                                plotOptions: {
+                                    area: {
+
+                                        lineWidth: 1,
+                                        marker: {
+                                            enabled: false,
+                                            states: {
+                                                hover: {
+                                                    enabled: true,
+                                                    radius: 5
+                                                }
+                                            }
+                                        },
+                                        shadow: false,
+                                        states: {
+                                            hover: {
+                                                lineWidth: 1
+                                            }
+                                        }
+                                    }
+                                },
+
+                                series: [{
+                                    type: 'area',
+                                    name: item.Key,
+                                    data: item.Value
+                                }]
+                            });
+                        });
+                    });
+                    });
+                     
+                    
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <script type="text/javascript" src="js/modules/exporting.js"></script>
+    监控大类：<select id="catname">
+        <option selected="selected" value="">选择监控大类...</option>
+        <option value="mongodb">mongodb</option>
+        <option value="memcached">memcached</option>
+        <option value="kt">kt</option>
+        <option value="redis">redis</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 监控小类：<select id="dbname">
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 监控项目：<select id="groupname">
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 监控粒度：<select id="aggname">
+        <option value="" selected="selected">10秒</option>
+        <option value="2m">2分钟</option>
+        <option value="20m">20分钟</option>
+        <option value="1h">1小时</option>
+        <option value="3h">3小时</option>
+        <option value="12h">12小时</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 分页：<select id="pageindex">
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input value="刷新" type="button" id="refresh" />
+    <br />
+    <br />
+    <div id="container">
+    </div>
+    <div id="page_effect" style="display: none;">
+        加载中...
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Adhesive.Mongodb.Silverlight.Web.DataService" CodeBehind="DataService.svc.cs" %>

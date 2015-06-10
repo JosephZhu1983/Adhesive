@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{998A8F25-3B22-4EEF-AB54-475838A6143B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adhesive.Config.Web</RootNamespace>
+    <AssemblyName>Adhesive.Config.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\MyCss.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="EditConfigItem.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\button-2.gif" />
+    <Content Include="images\button-3.gif" />
+    <Content Include="ViewAppNameList.aspx" />
+    <Content Include="ViewConfigItemList.aspx" />
+    <Content Include="ViewTopLevelConfigItemList.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditConfigItem.aspx.cs">
+      <DependentUpon>EditConfigItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditConfigItem.aspx.designer.cs">
+      <DependentUpon>EditConfigItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewAppNameList.aspx.cs">
+      <DependentUpon>ViewAppNameList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAppNameList.aspx.designer.cs">
+      <DependentUpon>ViewAppNameList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewConfigItemList.aspx.cs">
+      <DependentUpon>ViewConfigItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewConfigItemList.aspx.designer.cs">
+      <DependentUpon>ViewConfigItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTopLevelConfigItemList.aspx.cs">
+      <DependentUpon>ViewTopLevelConfigItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTopLevelConfigItemList.aspx.designer.cs">
+      <DependentUpon>ViewTopLevelConfigItemList.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adhesive.AppInfoCenter.Imp\Adhesive.AppInfoCenter.Imp.csproj">
+      <Project>{544ECEAF-7F62-421F-8742-A459005243C4}</Project>
+      <Name>Adhesive.AppInfoCenter.Imp %28Core\Adhesive.AppInfoCenter.Imp%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.AppInfoCenter\Adhesive.AppInfoCenter.csproj">
+      <Project>{82D7D3ED-F4F5-4228-87EE-AC540CC74FC9}</Project>
+      <Name>Adhesive.AppInfoCenter %28Core\Adhesive.AppInfoCenter%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Common\Adhesive.Common.csproj">
+      <Project>{586EEFA6-F009-4578-8F38-98F893317E35}</Project>
+      <Name>Adhesive.Common %28Core\Adhesive.Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Config.Imp\Adhesive.Config.Imp.csproj">
+      <Project>{DE9656E0-A465-4F4D-9CAB-25843F316603}</Project>
+      <Name>Adhesive.Config.Imp %28Core\Adhesive.Config.Imp%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Config\Adhesive.Config.csproj">
+      <Project>{B400D862-86C5-4160-8749-30CF1BE4AEA1}</Project>
+      <Name>Adhesive.Config %28Core\Adhesive.Config%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.MemoryQueue.Imp\Adhesive.MemoryQueue.Imp.csproj">
+      <Project>{1AB77DC2-DC2C-40AC-B9FF-B6596FA9DC35}</Project>
+      <Name>Adhesive.MemoryQueue.Imp %28Core\Adhesive.MemoryQueue.Imp%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.MemoryQueue\Adhesive.MemoryQueue.csproj">
+      <Project>{03CD5495-5558-466B-84E5-1126FA9C513F}</Project>
+      <Name>Adhesive.MemoryQueue %28Core\Adhesive.MemoryQueue%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Mongodb.Imp\Adhesive.Mongodb.Imp.csproj">
+      <Project>{FEB1246B-45B1-4ECB-A93D-EA5F4AD1B59D}</Project>
+      <Name>Adhesive.Mongodb.Imp %28Core\Adhesive.Mongodb.Imp%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Mongodb\Adhesive.Mongodb.csproj">
+      <Project>{33BFED56-9C19-4A15-9278-210E9B56520D}</Project>
+      <Name>Adhesive.Mongodb %28Core\Adhesive.Mongodb%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\AdhesiveConfig.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>31357</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

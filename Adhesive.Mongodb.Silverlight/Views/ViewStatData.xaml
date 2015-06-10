@@ -1,0 +1,50 @@
+﻿<sdk:ChildWindow x:Class="Adhesive.Mongodb.Silverlight.ViewStatData"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"	
+    Title="数据量统计视图"  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                  xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
+    Style="{StaticResource ChildWindowStyle}" Loaded="ChildWindow_Loaded" Closing="ChildWindow_Closing" SizeChanged="ChildWindow_SizeChanged">
+
+    <Grid x:Name="LayoutRoot">
+        <toolkit:BusyIndicator Name="Busy" BusyContent="数据加载中，请等待..." DisplayAfter="00:00:00">
+            <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel Name="ContentStackPanel"  Orientation="Vertical" Margin="10, 20, 10, 0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="选择粒度：" />
+                        <toolkit:NumericUpDown Minimum="1" Maximum="100" Name="TimeSpanNumber" Margin="5, 0, 0, 0" MouseEnter="TimeSpanNumber_MouseEnter"></toolkit:NumericUpDown>
+                        <ComboBox Name="TimeSpanType" Margin="5, 0, 0, 0" Height="28">
+                            <ComboBoxItem Content="秒" Tag="Second"/>
+                            <ComboBoxItem Content="分钟" Tag="Minute"/>
+                            <ComboBoxItem Content="小时" Tag="Hour"/>
+                            <ComboBoxItem Content="天" Tag="Day" />
+                            <ComboBoxItem Content="周" Tag="Week"/>
+                            <ComboBoxItem Content="月" Tag="Month" />
+                        </ComboBox>
+                        <Button Content="默认粒度" Margin="10, 0, 0, 0" Name="Default" Click="Default_Click">
+                        </Button>
+                        <Button Content="刷新" Margin="10, 0, 0, 0" Name="Refresh" Click="Refresh_Click">
+                        </Button>
+                        <ToggleButton Content="开启自动刷新" Margin="10,0,0,0" Width="120" Name="AutoRefresh" Click="AutoRefresh_Click"></ToggleButton>
+                        <Button Content="查看列表" Margin="10, 0, 0, 0" Name="List" Click="List_Click">
+                        </Button>
+                        <Button Content="查看分组统计" Margin="10, 0, 0, 0" Name="Group" Click="Group_Click">
+                        </Button>
+                        <Button Margin="10, 0, 0, 0" Name="CopyUrlAddress" Content="复制页面地址" Click="CopyUrlAddress_Click"></Button>
+                        <Button Content="显示/隐藏SUM"  Margin="200, 0, 0, 0" Name="Sum" Click="Sum_Click">
+                        </Button>
+                        <Button Content="显示/隐藏AVG"  Margin="10, 0, 0, 0" Name="AVG" Click="AVG_Click">
+                        </Button>
+                       
+                        <TextBlock Margin="10, 0, 0, 0" Name="RangeDetail" VerticalAlignment="Center"></TextBlock>
+
+                    </StackPanel>
+
+                    <toolkit:Chart x:Name="Chart" Margin="0, 0, 0, 0" Background="White">
+                    </toolkit:Chart>
+                </StackPanel>
+            </ScrollViewer>
+        </toolkit:BusyIndicator>
+    </Grid>
+</sdk:ChildWindow>

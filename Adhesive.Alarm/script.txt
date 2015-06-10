@@ -1,0 +1,64 @@
+﻿USE [Adhesive]
+GO
+/****** Object:  Table [dbo].[AlarmItem]    Script Date: 11/23/2011 15:52:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AlarmItem](
+	[Id] [nvarchar](32) NOT NULL,
+	[AlarmConfigName] [nvarchar](200) NOT NULL,
+	[AlarmDatabaseName] [nvarchar](200) NOT NULL,
+	[AlarmTableName] [nvarchar](200) NOT NULL,
+	[AlarmStatusId] [int] NOT NULL,
+	[OpenTime] [datetime2](7) NULL,
+	[HandleTime] [datetime2](7) NULL,
+	[CloseTime] [datetime2](7) NULL,
+	[AlarmTimes] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_AlarmItem_ConfigName] ON [dbo].[AlarmItem] 
+(
+	[AlarmConfigName] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_AlarmItem_StatusId] ON [dbo].[AlarmItem] 
+(
+	[AlarmStatusId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AlarmProcessItem]    Script Date: 11/23/2011 15:52:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AlarmProcessItem](
+	[Id] [nvarchar](32) NOT NULL,
+	[AlarmItemId] [nvarchar](32) NOT NULL,
+	[AlarmStatusId] [int] NOT NULL,
+	[MobileComment] [nvarchar](50) NULL,
+	[MailComment] [nvarchar](500) NULL,
+	[ProcessUserName] [nvarchar](50) NULL,
+	[ProcessUserRealName] [nvarchar](50) NULL,
+	[EventTime] [datetime2](7) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_AlarmProcessItem_ItemId] ON [dbo].[AlarmProcessItem] 
+(
+	[AlarmItemId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+/****** Object:  ForeignKey [AlarmItem_AlarmProcessItems]    Script Date: 11/23/2011 15:52:04 ******/
+ALTER TABLE [dbo].[AlarmProcessItem]  WITH CHECK ADD  CONSTRAINT [AlarmItem_AlarmProcessItems] FOREIGN KEY([AlarmItemId])
+REFERENCES [dbo].[AlarmItem] ([Id])
+GO
+ALTER TABLE [dbo].[AlarmProcessItem] CHECK CONSTRAINT [AlarmItem_AlarmProcessItems]
+GO

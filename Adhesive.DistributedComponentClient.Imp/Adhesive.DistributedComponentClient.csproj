@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1FBDB0AC-4149-499E-B99C-4AAA33471EC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adhesive.DistributedComponentClient</RootNamespace>
+    <AssemblyName>Adhesive.DistributedComponentClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>..\Output\Adhesive.DistributedComponentClient.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractClient.cs" />
+    <Compile Include="ClientCluster.cs" />
+    <Compile Include="ClientNode.cs" />
+    <Compile Include="ClientNodeLocator.cs" />
+    <Compile Include="ClientSocket.cs" />
+    <Compile Include="ClientSocketStatus.cs" />
+    <Compile Include="DistributedServerConfiguration.cs" />
+    <Compile Include="ClientClusterConfiguration.cs" />
+    <Compile Include="DistributedServerConfigurationEntity.cs" />
+    <Compile Include="ClientNodeConfiguration.cs" />
+    <Compile Include="Memcached\MemcachedClient_Internal.cs" />
+    <Compile Include="Memcached\MemcachedClient.cs" />
+    <Compile Include="Memcached\MemcachedLocker.cs" />
+    <Compile Include="Memcached\Protocol\Header.cs" />
+    <Compile Include="Memcached\Protocol\Request\AbstractRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Opcode.cs" />
+    <Compile Include="Memcached\Protocol\Request\AddRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\AppendRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\StatRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\PrependRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\VersionRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\FlushRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\DecrementRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\IncrementRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\DeleteQRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\DeleteRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\SetQRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\ReplaceRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\SetRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\GetKRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Request\GetRequestPackage.cs" />
+    <Compile Include="Memcached\Protocol\Response\ResponsePackageCreator.cs" />
+    <Compile Include="Memcached\Protocol\Response\GeneralResponsePackage.cs" />
+    <Compile Include="Memcached\Protocol\Response\ResponsePackageAttribute.cs" />
+    <Compile Include="Memcached\Protocol\Response\ResponseStatus.cs" />
+    <Compile Include="Memcached\Protocol\StatTypeCode.cs" />
+    <Compile Include="Memcached\StatType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\Protocol.cs" />
+    <Compile Include="ClientNodeWeight.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adhesive.Common\Adhesive.Common.csproj">
+      <Project>{586EEFA6-F009-4578-8F38-98F893317E35}</Project>
+      <Name>Adhesive.Common %28Core\Adhesive.Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Config\Adhesive.Config.csproj">
+      <Project>{B400D862-86C5-4160-8749-30CF1BE4AEA1}</Project>
+      <Name>Adhesive.Config %28Core\Adhesive.Config%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

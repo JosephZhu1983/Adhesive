@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Adhesive.Alarm.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Adhesive.Alarm.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Adhesive.Domain" />
+  <xs:simpleType name="AlarmStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Open">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Handling">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Closed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AlarmStatus" nillable="true" type="tns:AlarmStatus" />
+  <xs:complexType name="ArrayOfAlarmItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlarmItem" nillable="true" type="tns:AlarmItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlarmItem" nillable="true" type="tns:ArrayOfAlarmItem" />
+  <xs:complexType name="AlarmItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Adhesive.Domain" base="q1:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlarmConfigName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AlarmDatabaseName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AlarmProcessItems" nillable="true" type="tns:ArrayOfAlarmProcessItem" />
+          <xs:element minOccurs="0" name="AlarmStatus" type="tns:AlarmStatus" />
+          <xs:element minOccurs="0" name="AlarmTableName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AlarmTimes" type="xs:int" />
+          <xs:element minOccurs="0" name="CloseTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="HandleTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OpenTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlarmItem" nillable="true" type="tns:AlarmItem" />
+  <xs:complexType name="ArrayOfAlarmProcessItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlarmProcessItem" nillable="true" type="tns:AlarmProcessItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlarmProcessItem" nillable="true" type="tns:ArrayOfAlarmProcessItem" />
+  <xs:complexType name="AlarmProcessItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Adhesive.Domain" base="q2:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlarmItem" nillable="true" type="tns:AlarmItem" />
+          <xs:element minOccurs="0" name="AlarmItemId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AlarmStatus" type="tns:AlarmStatus" />
+          <xs:element minOccurs="0" name="EventTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MailComment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MobileComment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProcessUserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProcessUserRealName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlarmProcessItem" nillable="true" type="tns:AlarmProcessItem" />
+</xs:schema>

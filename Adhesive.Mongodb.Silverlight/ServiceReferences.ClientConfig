@@ -1,0 +1,19 @@
+﻿<configuration>
+    <system.serviceModel>
+      <client>
+        <endpoint address="http://localhost:60887/DataService.svc" binding="customBinding"
+          bindingConfiguration="CustomBinding_DataService" contract="Service.DataService"
+          name="CustomBinding_DataService" />
+      </client>
+      <bindings>
+        <customBinding>
+          <binding name="CustomBinding_DataService" receiveTimeout="00:10:00"
+            sendTimeout="00:10:00">
+            <binaryMessageEncoding />
+            <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+          </binding>
+        </customBinding>
+      </bindings>
+     
+    </system.serviceModel>
+</configuration>

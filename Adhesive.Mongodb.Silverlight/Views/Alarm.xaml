@@ -1,0 +1,184 @@
+﻿<navigation:Page  x:Class="Adhesive.Mongodb.Silverlight.Alarm" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+           xmlns:System_Windows_Controls_Primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Input.Toolkit" 
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+     mc:Ignorable="d"
+     Style="{StaticResource PageStyle}" Loaded="Page_Loaded">
+
+        <Grid x:Name="LayoutRoot">
+        <toolkit:BusyIndicator Name="Busy" BusyContent="数据加载中，请等待..." DisplayAfter="00:00:00">
+            <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <sdk:TabControl  Margin="0,20,0,0" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" SelectionChanged="tabControl1_SelectionChanged">
+                    <sdk:TabItem Header="未处理" Name="Open">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Name="OpenCount" VerticalAlignment="Center" />
+                                <sdk:DataPager DisplayMode="FirstLastPreviousNextNumeric" Name="OpenPager" PageSize="10" VerticalAlignment="Top" HorizontalContentAlignment="Right" PageIndexChanged="OpenPager_PageIndexChanged" />
+                            </StackPanel>
+                            <sdk:DataGrid Grid.Row="1" CellStyle="{StaticResource DataGridCellStyle}" AutoGenerateColumns="False" Name="OpenGrid" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <sdk:DataGrid.Columns>
+                                    <sdk:DataGridTextColumn Binding="{Binding Id}" Header="ID" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmConfigName}" Header="配置名" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmStatus}" Header="状态" />
+                                    <sdk:DataGridTextColumn Binding="{Binding OpenTime}" Header="发生时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding HandleTime}" Header="第一次处理时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding CloseTime}" Header="关闭时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmTimes}" Header="报警次数" />
+                                    <sdk:DataGridTemplateColumn>
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Content="详细信息" Click="Button_Click"/>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+                                </sdk:DataGrid.Columns>
+                            </sdk:DataGrid>
+                            <StackPanel Grid.Row="2" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Name="OpenCount2" VerticalAlignment="Center" />
+                                <sdk:DataPager DisplayMode="FirstLastPreviousNextNumeric" Name="OpenPager2" PageSize="10" VerticalAlignment="Top" HorizontalContentAlignment="Right" PageIndexChanged="OpenPager_PageIndexChanged" />
+                            </StackPanel>
+                        </Grid>
+                    </sdk:TabItem>
+                    <sdk:TabItem Header="处理中" Name="Handle">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Name="HandleCount" VerticalAlignment="Center" />
+                                <sdk:DataPager DisplayMode="FirstLastPreviousNextNumeric" Name="HandlePager" PageSize="10" VerticalAlignment="Top" HorizontalContentAlignment="Right" PageIndexChanged="HandlePager_PageIndexChanged" />
+                            </StackPanel>
+                            <sdk:DataGrid Grid.Row="1" CellStyle="{StaticResource DataGridCellStyle}" AutoGenerateColumns="False" Name="HandleGrid" VerticalAlignment="Top">
+                                <sdk:DataGrid.Columns>
+                                    <sdk:DataGridTextColumn Binding="{Binding Id}" Header="ID" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmConfigName}" Header="配置名" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmStatus}" Header="状态" />
+                                    <sdk:DataGridTextColumn Binding="{Binding OpenTime}" Header="发生时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding HandleTime}" Header="第一次处理时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding CloseTime}" Header="关闭时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmTimes}" Header="报警次数" />
+                                    <sdk:DataGridTemplateColumn>
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Content="详细信息" Click="Button_Click"/>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+                                </sdk:DataGrid.Columns>
+                            </sdk:DataGrid>
+                            <StackPanel Grid.Row="2" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Name="HandleCount2" VerticalAlignment="Center" />
+                                <sdk:DataPager DisplayMode="FirstLastPreviousNextNumeric" Name="HandlePager2" PageSize="10" VerticalAlignment="Top" HorizontalContentAlignment="Right" PageIndexChanged="HandlePager_PageIndexChanged" />
+                            </StackPanel>
+                        </Grid>
+                    </sdk:TabItem>
+                    <sdk:TabItem Header="处理完毕" Name="Close">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Name="ClosedCount" VerticalAlignment="Center" />
+                                <sdk:DataPager DisplayMode="FirstLastPreviousNextNumeric" Name="ClosedPager" PageSize="10" VerticalAlignment="Top" HorizontalContentAlignment="Right" PageIndexChanged="ClosedPager_PageIndexChanged" />
+                            </StackPanel>
+                            <sdk:DataGrid Grid.Row="1"  CellStyle="{StaticResource DataGridCellStyle}"  AutoGenerateColumns="False" Name="ClosedGrid" VerticalAlignment="Top">
+                                <sdk:DataGrid.Columns>
+                                    <sdk:DataGridTextColumn Binding="{Binding Id}" Header="ID" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmConfigName}" Header="配置名" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmStatus}" Header="状态" />
+                                    <sdk:DataGridTextColumn Binding="{Binding OpenTime}" Header="发生时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding HandleTime}" Header="第一次处理时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding CloseTime}" Header="关闭时间" />
+                                    <sdk:DataGridTextColumn Binding="{Binding AlarmTimes}" Header="报警次数" />
+                                    <sdk:DataGridTemplateColumn>
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Content="详细信息" Click="Button_Click"/>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+                                </sdk:DataGrid.Columns>
+                            </sdk:DataGrid>
+                            <StackPanel Grid.Row="2" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Name="ClosedCount2" VerticalAlignment="Center" />
+                                <sdk:DataPager DisplayMode="FirstLastPreviousNextNumeric" Name="ClosedPager2" PageSize="10" VerticalAlignment="Top" HorizontalContentAlignment="Right" PageIndexChanged="ClosedPager_PageIndexChanged" />
+                            </StackPanel>
+                        </Grid>
+                    </sdk:TabItem>
+                    <sdk:TabItem Header="群发短信" Name="Message">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <ScrollViewer  Grid.Column="0"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="350" Height="300">
+                                      <ScrollViewer.Content>
+                                          <StackPanel Name="Group" Orientation="Vertical">  
+                                          </StackPanel>
+                                      </ScrollViewer.Content>
+                                 </ScrollViewer>
+                                <ScrollViewer  Grid.Column="1"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="300">
+                                    <ScrollViewer.Content>
+                                        <StackPanel Name="Receivers">
+                                    <TextBlock Name="ReceiversTitle" HorizontalAlignment="Center" FontSize = "20" />
+                                    <sdk:DataGrid LoadingRow="ReceiversGrid_LoadingRow" CellStyle="{StaticResource DataGridCellStyle}"  AutoGenerateColumns="False" Name="ReceiversGrid" VerticalAlignment="Top" Visibility="Collapsed">
+                                        <sdk:DataGrid.Columns>
+                                            <sdk:DataGridTextColumn Binding="{Binding UserName}" Header="用户名" />
+                                            <sdk:DataGridTextColumn Binding="{Binding RealName}" Header="姓名" />
+                                            <sdk:DataGridTextColumn Binding="{Binding MobileNumber}" Header="手机号码" />
+                                            <sdk:DataGridTextColumn Binding="{Binding MailAddress}" Header="邮箱地址" />
+                                            <sdk:DataGridTemplateColumn>
+                                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <CheckBox x:Name="ck" Click="CheckBox_Click" Tag="{Binding UserName}" />
+                                                    </DataTemplate>
+                                                </sdk:DataGridTemplateColumn.CellTemplate>
+                                            </sdk:DataGridTemplateColumn>
+                                        </sdk:DataGrid.Columns>
+                                    </sdk:DataGrid>
+                                </StackPanel>
+                                    </ScrollViewer.Content>
+                                </ScrollViewer>
+                            </Grid>
+                            <Grid Grid.Row="1" Width="710">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                                    <TextBlock Text="消息内容: " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="100"></TextBlock>
+                                    <TextBox Height="50" Width="600" Margin="10,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Name="MessageContent" MaxLength="400" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn ="true"></TextBox>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" >
+                                    <TextBlock Margin="5,0,300,0" Name="Notice" Foreground="#FFF00909" FontSize="20" />
+                                    <Button Margin="50,10,0,0" Name="SendMobile" Content="发送短信" Click="SendMobile_Click" />
+                                    <Button Margin="50,10,0,0" Name="SendEmail" Content="发送邮件" Click="SendEmail_Click" />
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    
+                    </sdk:TabItem>    
+                </sdk:TabControl>
+            </ScrollViewer>
+        </toolkit:BusyIndicator>
+    </Grid>
+</navigation:Page>

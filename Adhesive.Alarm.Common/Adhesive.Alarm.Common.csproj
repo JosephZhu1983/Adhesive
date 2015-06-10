@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB23E30B-62B2-4851-967C-305506F92405}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adhesive.Alarm.Common</RootNamespace>
+    <AssemblyName>Adhesive.Alarm.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dimac.JMail">
+      <HintPath>..\dll\Dimac.JMail.dll</HintPath>
+    </Reference>
+    <Reference Include="Dimac.JMail.Smtp">
+      <HintPath>..\dll\Dimac.JMail.Smtp.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Fost.Esb">
+      <HintPath>..\dll\Fost.Esb.dll</HintPath>
+    </Reference>
+    <Reference Include="Fost.MobileMessage">
+      <HintPath>..\dll\Fost.MobileMessage.dll</HintPath>
+    </Reference>
+    <Reference Include="HessianCSharp">
+      <HintPath>..\dll\HessianCSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="HTB.DevFx.BaseFx">
+      <HintPath>..\dll\HTB.DevFx.BaseFx.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlarmConditionType.cs" />
+    <Compile Include="AlarmConfigurationBase.cs" />
+    <Compile Include="AlarmConfigurationEntity.cs" />
+    <Compile Include="AlarmConfigurationItemBase.cs" />
+    <Compile Include="AlarmConfigurationItemByState.cs" />
+    <Compile Include="AlarmConfigurationItemByStatistics.cs" />
+    <Compile Include="AlarmDb.cs" />
+    <Compile Include="AlarmDbConfig.cs" />
+    <Compile Include="AlarmDbContext.cs" />
+    <Compile Include="AlarmReceiverConfiguration.cs" />
+    <Compile Include="AlarmReceiverGroupConfiguration.cs" />
+    <Compile Include="AlarmStatus.cs" />
+    <Compile Include="MailItem.cs" />
+    <Compile Include="MailService.cs" />
+    <Compile Include="MobileItem.cs" />
+    <Compile Include="MobileService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AlarmDetailType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adhesive.AppInfoCenter\Adhesive.AppInfoCenter.csproj">
+      <Project>{82D7D3ED-F4F5-4228-87EE-AC540CC74FC9}</Project>
+      <Name>Adhesive.AppInfoCenter %28Core\Adhesive.AppInfoCenter%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Common\Adhesive.Common.csproj">
+      <Project>{586EEFA6-F009-4578-8F38-98F893317E35}</Project>
+      <Name>Adhesive.Common %28Core\Adhesive.Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Config\Adhesive.Config.csproj">
+      <Project>{B400D862-86C5-4160-8749-30CF1BE4AEA1}</Project>
+      <Name>Adhesive.Config %28Core\Adhesive.Config%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Domain\Adhesive.Domain.csproj">
+      <Project>{F3B1CF33-151F-4914-8DED-4389BB0AD592}</Project>
+      <Name>Adhesive.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.MemoryQueue\Adhesive.MemoryQueue.csproj">
+      <Project>{03CD5495-5558-466B-84E5-1126FA9C513F}</Project>
+      <Name>Adhesive.MemoryQueue %28Core\Adhesive.MemoryQueue%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Persistence\Adhesive.Persistence.csproj">
+      <Project>{5719AF40-16D7-4BB5-91FD-E3E817FC6178}</Project>
+      <Name>Adhesive.Persistence</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

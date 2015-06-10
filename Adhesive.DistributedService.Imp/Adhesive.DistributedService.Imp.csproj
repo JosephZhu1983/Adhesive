@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4FA96811-2DE6-445E-8718-B86233707932}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adhesive.DistributedService.Imp</RootNamespace>
+    <AssemblyName>Adhesive.DistributedService.Imp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Output\Adhesive.DistributedService.Imp.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Server\ActionInerceptBehavior.cs" />
+    <Compile Include="ApplicationContext.cs" />
+    <Compile Include="Logging\ClientStartInfo.cs" />
+    <Compile Include="Client\ClientApplicationContext.cs" />
+    <Compile Include="Logging\ClientInvokeInfo.cs" />
+    <Compile Include="Logging\ClientMessageInfo.cs" />
+    <Compile Include="Client\ClientMessageInspector.cs" />
+    <Compile Include="ConfigHelper.cs" />
+    <Compile Include="Server\ErrorHandler.cs" />
+    <Compile Include="Setting\WcfCoreSetting.cs" />
+    <Compile Include="Setting\WcfClientCoreSetting.cs" />
+    <Compile Include="Setting\ExceptionInfoSetting.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Logging\InvokeInfo.cs" />
+    <Compile Include="Setting\InvokeInfoSetting.cs" />
+    <Compile Include="Config\IWcfConfigService.cs" />
+    <Compile Include="Setting\MessageDirection.cs" />
+    <Compile Include="Logging\MessageInfo.cs" />
+    <Compile Include="Setting\MessageInfoSetting.cs" />
+    <Compile Include="MessageInspectorEndpointBehavior.cs" />
+    <Compile Include="Server\OperationBehavior.cs" />
+    <Compile Include="OperationDirection.cs" />
+    <Compile Include="Server\OperationInvoker.cs" />
+    <Compile Include="Setting\PasswordCheck.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterServiceTask.cs" />
+    <Compile Include="Server\ServerApplicationContext.cs" />
+    <Compile Include="Logging\ServerInvokeInfo.cs" />
+    <Compile Include="Logging\ServerMessageInfo.cs" />
+    <Compile Include="Server\ServerMessageInspector.cs" />
+    <Compile Include="Logging\ServerStartInfo.cs" />
+    <Compile Include="Server\ServiceErrorBehavior.cs" />
+    <Compile Include="Client\WcfServiceLocator.cs" />
+    <Compile Include="Client\ServiceRealProxy.cs" />
+    <Compile Include="Logging\StartInfo.cs" />
+    <Compile Include="Setting\StartInfoSetting.cs" />
+    <Compile Include="Server\UnityInstanceProvider.cs" />
+    <Compile Include="Server\UnityServiceBehavior.cs" />
+    <Compile Include="Config\WcfBindingConfig.cs" />
+    <Compile Include="Client\WcfChannelWrapper.cs" />
+    <Compile Include="Config\WcfClientEndpointConfig.cs" />
+    <Compile Include="Setting\WcfClientSetting.cs" />
+    <Compile Include="Setting\WcfPerformanceServiceSetting.cs" />
+    <Compile Include="Setting\WcfServerCoreSetting.cs" />
+    <Compile Include="Config\WcfEndpointConfig.cs" />
+    <Compile Include="Setting\WcfClientLogSetting.cs" />
+    <Compile Include="Logging\WcfLogProvider.cs" />
+    <Compile Include="Setting\WcfServerLogSetting.cs" />
+    <Compile Include="Setting\WcfLogSetting.cs" />
+    <Compile Include="State\WcfClientStateInfo.cs" />
+    <Compile Include="State\WcfServerPerformanceService.cs" />
+    <Compile Include="State\WcfStateItem.cs" />
+    <Compile Include="State\WcfServerStateItem.cs" />
+    <Compile Include="State\WcfServerStateService.cs" />
+    <Compile Include="State\WcfServerStateInfo.cs" />
+    <Compile Include="State\WcfClientStateItem.cs" />
+    <Compile Include="State\WcfClientStateService.cs" />
+    <Compile Include="WcfSecurityException.cs" />
+    <Compile Include="Setting\WcfSecuritySetting.cs" />
+    <Compile Include="Setting\WcfServerSetting.cs" />
+    <Compile Include="Config\WcfServiceConfig.cs" />
+    <Compile Include="Client\WcfServiceClientFactory.cs" />
+    <Compile Include="Config\WcfServiceEndpointConfig.cs" />
+    <Compile Include="Server\WcfServiceHostFactory.cs" />
+    <Compile Include="Setting\WcfSetting.cs" />
+    <Compile Include="WcfSettingManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adhesive.AppInfoCenter.Imp\Adhesive.AppInfoCenter.Imp.csproj">
+      <Project>{544ECEAF-7F62-421F-8742-A459005243C4}</Project>
+      <Name>Adhesive.AppInfoCenter.Imp %28Core\Adhesive.AppInfoCenter.Imp%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.AppInfoCenter\Adhesive.AppInfoCenter.csproj">
+      <Project>{82D7D3ED-F4F5-4228-87EE-AC540CC74FC9}</Project>
+      <Name>Adhesive.AppInfoCenter %28Core\Adhesive.AppInfoCenter%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Common\Adhesive.Common.csproj">
+      <Project>{586EEFA6-F009-4578-8F38-98F893317E35}</Project>
+      <Name>Adhesive.Common %28Core\Adhesive.Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Config\Adhesive.Config.csproj">
+      <Project>{B400D862-86C5-4160-8749-30CF1BE4AEA1}</Project>
+      <Name>Adhesive.Config %28Core\Adhesive.Config%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Mongodb\Adhesive.Mongodb.csproj">
+      <Project>{33BFED56-9C19-4A15-9278-210E9B56520D}</Project>
+      <Name>Adhesive.Mongodb %28Core\Adhesive.Mongodb%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

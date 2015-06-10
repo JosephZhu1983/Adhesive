@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_DataService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb.Silverlight.Web" />
+      <xsd:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd3" namespace="Adhesive.Mongodb" />
+      <xsd:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" />
+      <xsd:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Adhesive.Alarm.Common" />
+      <xsd:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Adhesive.Domain" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DataService_Log_InputMessage">
+    <wsdl:part name="parameters" element="tns:Log" />
+  </wsdl:message>
+  <wsdl:message name="DataService_Log_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetCategoryData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryData" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetCategoryData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetServerInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerInfo" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetServerInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetDetailDataOnlyById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailDataOnlyById" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetDetailDataOnlyById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailDataOnlyByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAdminConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAdminConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetFilterData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilterData" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetFilterData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetTableData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTableData" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetTableData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTableDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetTableDataByContextId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTableDataByContextId" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetTableDataByContextId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTableDataByContextIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetStatisticsData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatisticsData" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetStatisticsData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatisticsDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetDetailData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailData" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetDetailData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetGroupData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupData" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetGroupData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetStateData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateData" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetStateData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAlarmItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmItems" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAlarmItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAlarmProcessItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmProcessItem" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAlarmProcessItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmProcessItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAlarmGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmGroup" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAlarmGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAlarmReceivers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmReceivers" />
+  </wsdl:message>
+  <wsdl:message name="DataService_GetAlarmReceivers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmReceiversResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="DataService_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_SendMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMobile" />
+  </wsdl:message>
+  <wsdl:message name="DataService_SendMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="DataService_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_HandleAlarmEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:HandleAlarmEvent" />
+  </wsdl:message>
+  <wsdl:message name="DataService_HandleAlarmEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HandleAlarmEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataService_CloseAlarmEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseAlarmEvent" />
+  </wsdl:message>
+  <wsdl:message name="DataService_CloseAlarmEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseAlarmEventResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DataService">
+    <wsdl:operation name="Log">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/Log" message="tns:DataService_Log_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/LogResponse" message="tns:DataService_Log_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryData">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetCategoryData" message="tns:DataService_GetCategoryData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetCategoryDataResponse" message="tns:DataService_GetCategoryData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetServerInfo" message="tns:DataService_GetServerInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetServerInfoResponse" message="tns:DataService_GetServerInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDataOnlyById">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetDetailDataOnlyById" message="tns:DataService_GetDetailDataOnlyById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetDetailDataOnlyByIdResponse" message="tns:DataService_GetDetailDataOnlyById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetAdminConfiguration" message="tns:DataService_GetAdminConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetAdminConfigurationResponse" message="tns:DataService_GetAdminConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilterData">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetFilterData" message="tns:DataService_GetFilterData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetFilterDataResponse" message="tns:DataService_GetFilterData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTableData">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetTableData" message="tns:DataService_GetTableData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetTableDataResponse" message="tns:DataService_GetTableData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTableDataByContextId">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetTableDataByContextId" message="tns:DataService_GetTableDataByContextId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetTableDataByContextIdResponse" message="tns:DataService_GetTableDataByContextId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatisticsData">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetStatisticsData" message="tns:DataService_GetStatisticsData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetStatisticsDataResponse" message="tns:DataService_GetStatisticsData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailData">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetDetailData" message="tns:DataService_GetDetailData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetDetailDataResponse" message="tns:DataService_GetDetailData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupData">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetGroupData" message="tns:DataService_GetGroupData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetGroupDataResponse" message="tns:DataService_GetGroupData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStateData">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetStateData" message="tns:DataService_GetStateData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetStateDataResponse" message="tns:DataService_GetStateData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetAlarmItems" message="tns:DataService_GetAlarmItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetAlarmItemsResponse" message="tns:DataService_GetAlarmItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmProcessItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetAlarmProcessItem" message="tns:DataService_GetAlarmProcessItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetAlarmProcessItemResponse" message="tns:DataService_GetAlarmProcessItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetAlarmGroup" message="tns:DataService_GetAlarmGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetAlarmGroupResponse" message="tns:DataService_GetAlarmGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmReceivers">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/GetAlarmReceivers" message="tns:DataService_GetAlarmReceivers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/GetAlarmReceiversResponse" message="tns:DataService_GetAlarmReceivers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/SendMessage" message="tns:DataService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/SendMessageResponse" message="tns:DataService_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/SendMobile" message="tns:DataService_SendMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/SendMobileResponse" message="tns:DataService_SendMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/SendEmail" message="tns:DataService_SendEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/SendEmailResponse" message="tns:DataService_SendEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HandleAlarmEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/HandleAlarmEvent" message="tns:DataService_HandleAlarmEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/HandleAlarmEventResponse" message="tns:DataService_HandleAlarmEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseAlarmEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/DataService/CloseAlarmEvent" message="tns:DataService_CloseAlarmEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DataService/CloseAlarmEventResponse" message="tns:DataService_CloseAlarmEvent_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_DataService" type="tns:DataService">
+    <wsp:PolicyReference URI="#CustomBinding_DataService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Log">
+      <soap12:operation soapAction="http://tempuri.org/DataService/Log" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryData">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetCategoryData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerInfo">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetServerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailDataOnlyById">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetDetailDataOnlyById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetAdminConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilterData">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetFilterData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTableData">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetTableData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTableDataByContextId">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetTableDataByContextId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatisticsData">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetStatisticsData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailData">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetDetailData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupData">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetGroupData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateData">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetStateData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmItems">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetAlarmItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmProcessItem">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetAlarmProcessItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmGroup">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetAlarmGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmReceivers">
+      <soap12:operation soapAction="http://tempuri.org/DataService/GetAlarmReceivers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/DataService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMobile">
+      <soap12:operation soapAction="http://tempuri.org/DataService/SendMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap12:operation soapAction="http://tempuri.org/DataService/SendEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HandleAlarmEvent">
+      <soap12:operation soapAction="http://tempuri.org/DataService/HandleAlarmEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseAlarmEvent">
+      <soap12:operation soapAction="http://tempuri.org/DataService/CloseAlarmEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

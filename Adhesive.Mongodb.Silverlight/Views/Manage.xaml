@@ -1,0 +1,25 @@
+﻿<navigation:Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+           xmlns:System_Windows_Controls_Primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Input.Toolkit" 
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   x:Class="Adhesive.Mongodb.Silverlight.Manage"
+           mc:Ignorable="d"        
+    Style="{StaticResource PageStyle}" Loaded="Page_Loaded" SizeChanged="Page_SizeChanged">
+
+    <Grid x:Name="LayoutRoot">
+        <toolkit:BusyIndicator Name="Busy" BusyContent="数据加载中，请等待..." DisplayAfter="00:00:00">
+            <StackPanel Name="ContentStackPanel" Orientation="Horizontal" Margin="10, 0, 10, 0" HorizontalAlignment="Left">
+                <StackPanel Name="LeftPanel" Orientation="Vertical" Margin="0,0,0,0" HorizontalAlignment="Left">
+                    <Button Content="刷新" Margin="10, 0, 0, 0" Name="Refresh" Click="Refresh_Click" HorizontalAlignment="Left">
+                    </Button>
+                    <sdk:TreeView Name="ObjectTree" HorizontalAlignment="Left" VerticalAlignment="Top" ></sdk:TreeView>
+                </StackPanel>               
+                <StackPanel Name="ObjectDetailPanel" Orientation="Vertical" Margin="50,0,0,0"></StackPanel>
+            </StackPanel>
+        </toolkit:BusyIndicator>
+    </Grid>
+</navigation:Page>

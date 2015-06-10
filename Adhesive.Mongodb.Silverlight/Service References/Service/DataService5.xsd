@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Adhesive.Mongodb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60887/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="MongodbCascadeFilterOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="LevelOne" />
+      <xs:enumeration value="LevelTwo" />
+      <xs:enumeration value="LevelThree" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MongodbCascadeFilterOption" nillable="true" type="tns:MongodbCascadeFilterOption" />
+  <xs:simpleType name="MongodbFilterOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="DropDownListFilter" />
+      <xs:enumeration value="CheckBoxListFilter" />
+      <xs:enumeration value="TextBoxFilter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MongodbFilterOption" nillable="true" type="tns:MongodbFilterOption" />
+  <xs:simpleType name="MongodbIndexOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Ascending" />
+      <xs:enumeration value="Descending" />
+      <xs:enumeration value="AscendingAndUnique" />
+      <xs:enumeration value="DescendingAndUnique" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MongodbIndexOption" nillable="true" type="tns:MongodbIndexOption" />
+  <xs:simpleType name="MongodbSortOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Ascending" />
+      <xs:enumeration value="Descending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MongodbSortOption" nillable="true" type="tns:MongodbSortOption" />
+  <xs:complexType name="ArrayOfDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Detail" nillable="true" type="tns:Detail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetail" nillable="true" type="tns:ArrayOfDetail" />
+  <xs:complexType name="Detail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubDetails" nillable="true" type="tns:ArrayOfDetail" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Detail" nillable="true" type="tns:Detail" />
+  <xs:simpleType name="CascadeFilterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LevelOne">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LevelTwo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LevelThree">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CascadeFilterType" nillable="true" type="tns:CascadeFilterType" />
+  <xs:simpleType name="ListFilterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Select" />
+      <xs:enumeration value="MultipleSelect" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ListFilterType" nillable="true" type="tns:ListFilterType" />
+</xs:schema>

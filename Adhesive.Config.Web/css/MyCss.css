@@ -1,0 +1,157 @@
+.title
+{
+	font-weight: bold;
+	font-size: 20pt;
+	color: #6699ff;
+	line-height: 130%;
+	font-style: normal;
+	text-decoration: none;
+}
+
+.label
+{
+	font-size: 9pt;
+	font-style: normal;
+	line-height: 130%;
+	color: #000000;
+	text-decoration: none;
+}
+
+.checkbox
+{
+	margin: 8px;
+}
+.radiobutton
+{
+	margin: 8px;
+}
+.dropdownlist
+{
+	font-size: 12px;
+	color: #666666;
+	text-decoration: none;
+}
+
+.btn
+{
+	background-image: url(../images/blank.gif);
+	border: thin #FFFFFF;
+	width: 94px;
+	height: 22px;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.btnAdd
+{
+	background-image: url(../images/buttonAdd.jpg);
+	border: thin #FFFFFF;
+	width: 94px;
+	height: 22px;
+	font-size: 12px;
+	text-decoration: none;
+}
+.btnSave
+{
+	background-image: url(../images/buttonSave.jpg);
+	border: thin #FFFFFF;
+	width: 94px;
+	height: 22px;
+	font-size: 12px;
+	text-decoration: none;
+}
+.btnDel
+{
+	background-image: url(../images/buttonDel.jpg);
+	border: thin #FFFFFF;
+	width: 94px;
+	height: 22px;
+	font-size: 12px;
+	text-decoration: none;
+}
+.btnSel
+{
+	background-image: url(../images/buttonSel.jpg);
+	border: thin #FFFFFF;
+	width: 94px;
+	height: 22px;
+	font-size: 12px;
+	text-decoration: none;
+}
+.black-12
+{
+	font-size: 12px;
+	color: #000000;
+}
+.gray-12
+{
+	font-size: 12px;
+	color: #555555;
+}
+.black-14
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+.blue-12
+{
+	font-size: 12px;
+	color: #0066CC;
+}
+
+/*lizp*/
+td
+{
+	font-size: 12px;
+}
+.inputTextLength120
+{
+	width: 120px;
+}
+.alignRight
+{
+	text-align: right;
+}
+.yellow-12-b
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFF99;
+}
+.ValidateStatus
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+.title
+{
+	font-size: 9pt;
+	font-style: normal;
+	line-height: 130%;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/*定单的物品出库增加css0606*/
+.blue-116 {
+	font-size: 16px;
+	color: #0066CC;
+}
+.gray-112 {
+	font-size: 12px;
+	color: #666666;
+}
+.red-112 {
+	font-size: 12px;
+	color: #FF0000;
+}
+.blue-112 {
+	font-size: 12px;
+	color: #0099FF;
+}
+
+.label113
+{
+	background-color:"#f2f2f2";	
+}

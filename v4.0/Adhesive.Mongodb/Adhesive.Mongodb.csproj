@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7538DF2B-5527-4BB4-ACF7-B551ED8AFA72}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adhesive.Mongodb</RootNamespace>
+    <AssemblyName>Adhesive.Mongodb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\output\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Adhesive.Mongodb\Attribute\MongodbPersistenceEntityAttribute.cs">
+      <Link>MongodbPersistenceEntityAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\Attribute\MongodbPersistenceItemAttribute.cs">
+      <Link>MongodbPersistenceItemAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\Attribute\MongodbPresentationItemAttribute.cs">
+      <Link>MongodbPresentationItemAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\CascadeFilter.cs">
+      <Link>CascadeFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\CascadeFilterType.cs">
+      <Link>CascadeFilterType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\Category.cs">
+      <Link>Category.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\Detail.cs">
+      <Link>Detail.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\DetailData.cs">
+      <Link>DetailData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\Filter.cs">
+      <Link>Filter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\FilterData.cs">
+      <Link>FilterData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\Group.cs">
+      <Link>Group.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\GroupItem.cs">
+      <Link>GroupItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\ItemPair.cs">
+      <Link>ItemPair.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\ListFilter.cs">
+      <Link>ListFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\ListFilterType.cs">
+      <Link>ListFilterType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\MongodbAdminConfigurationItem.cs">
+      <Link>MongodbAdminConfigurationItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\State.cs">
+      <Link>State.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\StateItem.cs">
+      <Link>StateItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\Statistics.cs">
+      <Link>Statistics.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\StatisticsItem.cs">
+      <Link>StatisticsItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\SubCategory.cs">
+      <Link>SubCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\Table.cs">
+      <Link>Table.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\TableData.cs">
+      <Link>TableData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\QueryData\TextboxFilter.cs">
+      <Link>TextboxFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\ServerInfo\CollectionInfo.cs">
+      <Link>CollectionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\ServerInfo\CollectionStatus.cs">
+      <Link>CollectionStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\ServerInfo\ColumnInfo.cs">
+      <Link>ColumnInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\ServerInfo\DatabaseInfo.cs">
+      <Link>DatabaseInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\ServerInfo\DatabaseStatus.cs">
+      <Link>DatabaseStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\ServerInfo\IndexStatus.cs">
+      <Link>IndexStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\ServerInfo\MongodbServerUrl.cs">
+      <Link>MongodbServerUrl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\ServerInfo\ServerInfo.cs">
+      <Link>ServerInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\Service.cs">
+      <Link>Service.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\Service\IMongodbInsertService.cs">
+      <Link>IMongodbInsertService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\Service\IMongodbQueryService.cs">
+      <Link>IMongodbQueryService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\Service\MongodbService.cs">
+      <Link>MongodbService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\SubmitData\MongodbCascadeFilterOption.cs">
+      <Link>MongodbCascadeFilterOption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\SubmitData\MongodbColumnDescription.cs">
+      <Link>MongodbColumnDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\SubmitData\MongodbData.cs">
+      <Link>MongodbData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\SubmitData\MongodbDatabaseDescription.cs">
+      <Link>MongodbDatabaseDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\SubmitData\MongodbEnumColumnDescription.cs">
+      <Link>MongodbEnumColumnDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\SubmitData\MongodbFilterOption.cs">
+      <Link>MongodbFilterOption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\SubmitData\MongodbIndexOption.cs">
+      <Link>MongodbIndexOption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Mongodb\SubmitData\MongodbSortOption.cs">
+      <Link>MongodbSortOption.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adhesive.Common\Adhesive.Common.csproj">
+      <Project>{B2B2DC4B-A282-4D58-A385-F68B6FF94343}</Project>
+      <Name>Adhesive.Common %28Core4\Adhesive.Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adhesive.Config\Adhesive.Config.csproj">
+      <Project>{520D0846-1C64-421E-8EBB-7AA5056CC4E4}</Project>
+      <Name>Adhesive.Config %28Core4\Adhesive.Config%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

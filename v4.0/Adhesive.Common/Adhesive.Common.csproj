@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2B2DC4B-A282-4D58-A385-F68B6FF94343}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adhesive.Common</RootNamespace>
+    <AssemblyName>Adhesive.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\output\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Adhesive.Common\AbstractService.cs">
+      <Link>AbstractService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\AdhesiveConfig.cs">
+      <Link>AdhesiveConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\AdhesiveFramework.cs">
+      <Link>AdhesiveFramework.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\AdhesiveFrameworkStatus.cs">
+      <Link>AdhesiveFrameworkStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Bootstrapper\Bootstrapper.cs">
+      <Link>Bootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Bootstrapper\BootstrapperTask.cs">
+      <Link>BootstrapperTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Bootstrapper\InitServiceBootstrapperTask.cs">
+      <Link>InitServiceBootstrapperTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Bootstrapper\RegisterServiceBootstrapperTask.cs">
+      <Link>RegisterServiceBootstrapperTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Bootstrapper\TaskContinuation.cs">
+      <Link>TaskContinuation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\CommonConfiguration.cs">
+      <Link>CommonConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Component\LocalConfigService.cs">
+      <Link>LocalConfigService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Component\LocalLoggingService.cs">
+      <Link>LocalLoggingService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Component\LocalServiceLocator.cs">
+      <Link>LocalServiceLocator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Component\LogLevel.cs">
+      <Link>LogLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Extension\EnumerableExtensions.cs">
+      <Link>EnumerableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Extension\EnumExtensions.cs">
+      <Link>EnumExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Extension\JsonExtensions.cs">
+      <Link>JsonExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Extension\TypeExtensions.cs">
+      <Link>TypeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Extension\UnityContainerExtensions.cs">
+      <Link>UnityContainerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\ConstructorInvoker.cs">
+      <Link>ConstructorInvoker.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\ConstructorInvokerCache.cs">
+      <Link>ConstructorInvokerCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\ConstructorInvokerFactory.cs">
+      <Link>ConstructorInvokerFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\FastReflectionCache.cs">
+      <Link>FastReflectionCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\FastReflectionCaches.cs">
+      <Link>FastReflectionCaches.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\FastReflectionExtensions.cs">
+      <Link>FastReflectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\FastReflectionFactories.cs">
+      <Link>FastReflectionFactories.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\FieldAccessor.cs">
+      <Link>FieldAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\FieldAccessorCache.cs">
+      <Link>FieldAccessorCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\FieldAccessorFactory.cs">
+      <Link>FieldAccessorFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\IFastReflectionCache.cs">
+      <Link>IFastReflectionCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\IFastReflectionFactory.cs">
+      <Link>IFastReflectionFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\MethodInvoker.cs">
+      <Link>MethodInvoker.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\MethodInvokerCache.cs">
+      <Link>MethodInvokerCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\MethodInvokerFactory.cs">
+      <Link>MethodInvokerFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\PropertyAccessor.cs">
+      <Link>PropertyAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\PropertyAccessorCache.cs">
+      <Link>PropertyAccessorCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\FastReflection\PropertyAccessorFactory.cs">
+      <Link>PropertyAccessorFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\BuildManagerWrapper.cs">
+      <Link>BuildManagerWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\ConfigFileWatcher.cs">
+      <Link>ConfigFileWatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\DebugBase.cs">
+      <Link>DebugBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\Disposable.cs">
+      <Link>Disposable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\FNV1a.cs">
+      <Link>FNV1a.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\LambdaComparer.cs">
+      <Link>LambdaComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\RetryUtility.cs">
+      <Link>RetryUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\SerializableDictionary.cs">
+      <Link>SerializableDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\TimeSpanEx.cs">
+      <Link>TimeSpanEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Adhesive.Common\Utility\Tuple.cs">
+      <Link>Tuple.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

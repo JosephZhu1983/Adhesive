@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <style type="text/css">
+        body
+        {
+            font-size: 9pt;
+            font-family: 微软雅黑;
+        }
+    </style>
+    <title>程序性能</title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var urlbase = "http://192.168.206.138:8888/GP";
+
+            for (var i = 0; i < 100; i++) {
+                $("#pageindex").append('<option value="' + i + '">' + i + '</option>');
+            }
+
+            $("#refresh").click(function () {
+                $("#appname").change();
+            });
+            $("#aggname").change(function () {
+                $("#appname").change();
+            });
+            $("#pageindex").change(function () {
+                $("#appname").change();
+            });
+
+            $("#catname").change(function () {
+                var catname = $(this).children('option:selected').val();
+                if (catname == "PP" || catname == "WSP" || catname == "WCP") {
+                    $("#subcatname").empty();
+                     $("#subcatname").append('<option value="" selected="selected" >请选择监控小类...</option>');
+                    $("#subcatname").append('<option value="Success">成功请求</option>');
+                    $("#subcatname").append('<option value="Failed">错误请求</option>');
+                    $("#subcatname").append('<option value="Time">执行时间</option>');
+                    $("#subcatname").append('<option value="Concurrent">当前并发</option>');
+                }
+                else {
+                    $("#subcatname").empty();
+                    $("#subcatname").append('<option selected="selected" value="">请先选择监控大类...</option>');
+                }
+
+                $("#appname").empty();
+                    $("#appname").append('<option selected="selected" value="">请先选择监控大类和小类......</option>');
+            });
+
+            $("#catname").change(function () {
+                var catname = $(this).children('option:selected').val();
+                if (catname == "PP") {
+                    $("#groupname").empty();
+                    $("#groupname").append('<option value="P" selected="selected">按页面</option>');
+                    $("#groupname").append('<option value="M">按机器</option>');
+
+                }
+                else if (catname == "WCP" | catname == "WSP") {
+                    $("#groupname").empty();
+                    $("#groupname").append('<option value="P" selected="selected">按方法</option>');
+                    $("#groupname").append('<option value="M">按机器</option>');
+
+                }
+                else {
+                    $("#groupname").empty();
+                    $("#groupname").append('<option selected="selected" value="">请先选择监控大类...</option>');
+                }
+            });
+
+             $("#groupname").change(function () {
+              var groupname = $(this).children('option:selected').val();
+              if (groupname != ""){
+                 $("#appname").change();
+                 }
+             });
+            $("#subcatname").change(function () {
+                var catname = $("#catname").children('option:selected').val();
+                 var appname = $("#appname").children('option:selected').val();
+                var subcatname = $("#subcatname").children('option:selected').val();
+                if (appname == ""){
+                    if (catname != "" && subcatname != "") {
+                        $.getJSON(urlbase + 'GetAppNames?catname=' + catname + '&subcatname=' + subcatname + '&callback=?', function (data) {
+                            $("#appname").empty();
+                            $("#appname").append('<option selected="selected" value="">选择监控应用...</option>');
+                            $.each(data, function (index, item) {
+                                $("#appname").append("<option value=" + item + ">" + item + "</option>");
+                            });
+                        });
+                    }                
+                }
+                else             
+                {
+                      $("#appname").change();
+                }
+            });
+             $("#itemname").change(function () {
+
+                $("#appname").change();
+           
+            });
+            
+            $("#appname").change(function (b) {
+                var val = $("#appname").children('option:selected').val();
+                if (val != "") {
+                    var pageindex = $("#pageindex").val();
+                     var appname = $("#appname").val();
+                    var aggname = $("#aggname").val();
+                    var groupname = $("#groupname").val();
+                     var catname = $("#catname").val();
+                      var subcatname = $("#subcatname").val();
+                      var itemname = $("#itemname").val() == null ? "" : $("#itemname").val();
+                    var getdataurl = urlbase + 'GetData?catname=' + catname + '&subcatname=' + subcatname + '&groupName=' + groupname + '&appname=' + appname +'&aggname=' + aggname + '&itemname='+itemname +'&pagesize=720&pageindex=' + pageindex + '&callback=?';
+                                     $("#container").empty();
+                      $('#page_effect').fadeIn(100);
+                    
+                     var getitemnameurl = urlbase + 'GetItemName?catname=' + catname + '&subcatname=' + subcatname + '&groupName=' + groupname + '&appname=' + appname +'&aggname=' + aggname +'&callback=?';
+                        $.getJSON(getitemnameurl, function (data) {
+                        $("#itemname").empty();
+                        $("#itemname").append('<option value="">前20项</option>');
+                        $.each(data, function (index, item) {
+                        $("#itemname").append("<option value=" + item + ">" + item + "</option>");
+                        });
+                    });
+
+                        $.getJSON(getdataurl, function (data) {
+                        
+                        $('#page_effect').fadeOut(100);
+                        $.each(data, function (index, item) {
+                            var subContainer = '<div id="' + item.Key + '" style="height: 300px; min-width: 500px; max-width:98%"></div>'
+                            $("#container").append(subContainer);
+                            var chart = new Highcharts.Chart({
+                                chart: {
+                                    renderTo: item.Key,
+       
+                                },
+                                title: {
+                                    text: item.Key,
+                                    style : 
+                                    {
+	                                    color: '#3E576F',
+	                                fontSize: '10pt'
+                                    }
+                                },
+                                xAxis: {
+                                    type: 'datetime',
+                                    title: {
+                                        text: '时间'
+                                    },
+
+                                    dateTimeLabelFormats :
+                                    {
+                                        minute: '%y/%m/%d %H:%M',
+                                        hour: '%y/%m/%d %H:%M',
+                                        day: '%y/%m/%d %H:%M',
+                                    }
+                                },
+                                yAxis: {
+                                    title: {
+                                        text: item.Key
+                                    },
+                                    startOnTick: false,
+                                    showFirstLabel: true
+                                },
+                               tooltip: { 
+            formatter: function() {  
+                  return '<b>'+'日期 : ' +'</b>'+ Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/><b>'+   this.series.name + '</b> : ' + this.y;  
+            }  
+        },  
+                                legend: {
+                                    enabled: false
+                                },
+                                plotOptions: {
+                                    area: {
+
+                                        lineWidth: 1,
+                                        marker: {
+                                            enabled: false,
+                                            states: {
+                                                hover: {
+                                                    enabled: true,
+                                                    radius: 5
+                                                }
+                                            }
+                                        },
+                                        shadow: false,
+                                        states: {
+                                            hover: {
+                                                lineWidth: 1
+                                            }
+                                        }
+                                    }
+                                },
+
+                                series: [{
+                                    type: 'area',
+                                    name: item.Key,
+                                    data: item.Value
+                                }]
+                            });
+                        });
+                    });     
+                     
+                    
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <script type="text/javascript" src="../js/modules/exporting.js"></script>
+    监控大类：<select id="catname">
+        <option selected="selected" value="">选择监控大类...</option>
+        <option value="PP">网站性能</option>
+        <option value="DP">DFS性能</option>
+        <option value="WSP">WCF服务端性能</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 监控小类：<select id="subcatname">
+        <option selected="selected" value="">请先选择监控大类...</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 监控应用：<select id="appname">
+        <option selected="selected" value="">请先选择监控大类和小类...</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 查看方式：<select id="groupname">
+        <option selected="selected" value="">请先选择监控大类...</option>
+    </select>
+    <br />
+    监控项目：<select id="itemname">
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 监控粒度：<select id="aggname">
+        <option value="" selected="selected">10秒</option>
+        <option value="2m">2分钟</option>
+        <option value="20m">20分钟</option>
+        <option value="1h">1小时</option>
+        <option value="3h">3小时</option>
+        <option value="12h">12小时</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp; 分页：<select id="pageindex">
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input value="刷新" type="button" id="refresh" />
+    <br />
+    <br />
+    <div id="container">
+    </div>
+    <div id="page_effect" style="display: none;">
+        加载中...
+    </div>
+</body>
+</html>

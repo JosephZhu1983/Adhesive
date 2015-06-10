@@ -1,0 +1,45 @@
+﻿<sdk:ChildWindow x:Class="Adhesive.Mongodb.Silverlight.ViewListData"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"	
+    Title="列表视图"  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                  xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
+    Style="{StaticResource ChildWindowStyle}" Loaded="ChildWindow_Loaded" SizeChanged="ChildWindow_SizeChanged">
+    
+    <Grid x:Name="LayoutRoot">
+        <toolkit:BusyIndicator Name="Busy" BusyContent="数据加载中，请等待..." DisplayAfter="00:00:00">
+            <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel Name="ContentStackPanel"  Orientation="Vertical" Margin="10, 20, 10, 0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="每页显示记录数："/>
+                        <TextBox Name="PageSize" Text="15" Width="30" Margin="5, 0, 0, 0">
+                            <ToolTipService.ToolTip>
+                                <ToolTip>点击刷新按钮之后此项设置会被记住</ToolTip>
+                            </ToolTipService.ToolTip>
+                        </TextBox>
+                        <Button Content="刷新" Margin="10, 0, 0, 0" Name="Refresh" Click="Refresh_Click">
+
+                        </Button>
+                        <Button Content="查看详细" Margin="10, 0, 0, 0" Name="Detail" Click="Detail_Click">
+
+                        </Button>
+
+                        <Button Content="查看数据量统计" Margin="10, 0, 0, 0" Name="Stat" Click="Stat_Click">
+
+                        </Button>
+                        
+                        <Button Content="查看分组统计" Margin="10, 0, 0, 0" Name="Group" Click="Group_Click">
+
+                        </Button>
+                        <Button Margin="10, 0, 0, 0" Name="CopyUrlAddress" Content="复制页面地址" Click="CopyUrlAddress_Click"></Button>
+                        <TextBlock Margin="10, 0, 0, 0" Name="RangeDetail" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <sdk:TabControl Name="ListGridTab" TabStripPlacement="Top" Margin="0, 20, 0, 0" SelectionChanged="ListGridTab_SelectionChanged">
+                    </sdk:TabControl>
+
+                </StackPanel>
+            </ScrollViewer>
+        </toolkit:BusyIndicator>
+    </Grid>
+</sdk:ChildWindow>
